@@ -1,0 +1,1 @@
+Read AGENTS.md. This is a brand-new project: <one paragraph: what I'm building, where it'll live, the stack>. Do the kickoff — fill in README, draft the real PLAN phases for this project, set the status block, and start NOTES with any decisions we make. Don't write application code yet.
