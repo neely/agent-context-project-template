@@ -1,10 +1,18 @@
 # Agent Protocol
 
+## Authority (read if present)
+- If a field-level grounding spec applies to this project (GROUNDING.md), it outranks this file.
+  Defer to it and cite the relevant constraint when a conflict arises — field
+  validity beats project preference. (No-op if the project has none. Example:
+  github.com/OmicsGrounding/proteomics-grounding)
+
 ## Files (read in this order on a cold start)
 1. This file — how to behave.
 2. PLAN.md — status block (top) + active phase.
 3. NOTES.md — why things are built the way they are; skim for relevance.
 4. JOURNAL.md — recent debriefs, only if you need the backstory.
+5. reference/ — vendored external material (docs, specs, ported source).
+   Consult targeted, only when the task needs it — do not read it wholesale.
 
 README.md is for humans arriving cold — not part of your read path, but keep
 it in sync (see below).
