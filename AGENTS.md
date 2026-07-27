@@ -6,6 +6,46 @@
   validity beats project preference. (No-op if the project has none. Example:
   github.com/OmicsGrounding/proteomics-grounding)
 
+## The prime directive: never assume, always check
+This project's entire credibility rests on this. It is not a style preference.
+- **Every result-fact — a [measurement, identifier, count, set membership, or
+  derived value] — comes from a FILE on disk or a SCRIPT that reads a file
+  (whether that file is committed to the repo or a pinned local artifact —
+  see Reproducibility below). Never from memory or recollection.** "I think
+  this [entity] belongs to [category]" is forbidden; emit the value from a
+  lookup and read it back.
+- If a fact isn't in a file you can read, either REQUEST the file or WRITE a
+  script/query to produce it. Do not fill the gap from training knowledge.
+- **For any EXTERNAL or citation claim** (a paper's figures, a DOI, a current
+  name in a controlled vocabulary, an API's behavior, a tool's limit): surface
+  it for verification — quote exactly what the source currently asserts and flag
+  it for check. Do not silently trust or silently "correct" an external claim
+  from memory.
+
+## Reproducibility is locked (data-driven projects; skip if not applicable)
+- **External data dependencies are pinned to a specific snapshot or version.**
+  State this in any Methods text. A reader re-running against current upstream
+  gets drift — that's expected.
+- **Verify-regenerate is free and encouraged:** re-run scripts to confirm they
+  reproduce the pinned outputs. Do this after any migration or edit that could
+  touch a derived number.
+- **Change-regenerate (re-running against CURRENT upstream and adopting the new
+  data) happens ONLY on explicit user request** — and MUST be preceded by an
+  enumerated downstream-impact trace: which caches, counts, figures, and docs
+  would change. Never change-regenerate incidentally while doing other work.
+- **Manual curation and pinned values change ONLY by deliberate, recorded
+  edits.** "Re-derive from raw" faithfully reproduces AUTOMATED steps only;
+  anything manual lives in data+code or it silently reverts.
+
+## Tripwire every derived set (data-driven projects; skip if not applicable)
+- Recompute against a known count before trusting or interpreting any derived
+  set. **Hard-stop on mismatch.** Numbers are certified against the pipeline's
+  own scripts, not eyeballed.
+- When an aggregation looks surprising, INSPECT THE RAW PRE-AGGREGATION
+  DISTRIBUTION before trusting it.
+- Project-specific tripwires (expected counts, known splits, sanity bounds) are
+  defined in NOTES.md.
+
 ## Files (read in this order on a cold start)
 1. This file — how to behave.
 2. PLAN.md — status block (top) + active phase.
