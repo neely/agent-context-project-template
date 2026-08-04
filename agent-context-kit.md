@@ -74,6 +74,8 @@ Work normally. Commit as you go — plain messages, straight to `main`, as many 
 
 So the code commits are the trail *within* the session; the wrap-up is a single bookend docs commit at the end. Ask the agent to report each step rather than accept a blanket "done" — that's what makes a skipped checkbox or an unpushed commit visible instead of silent. Push is the one that bites most often: agents routinely commit locally and never push, so it's called out as its own proven step.
 
+Once the push is confirmed, **`/clear`**. The whole point of writing state back into the files is that the conversation is now disposable — the next session cold-starts from disk, which this kit makes cheap and reliable. Clearing costs nothing and stops tomorrow's one-line question from re-billing today's entire conversation.
+
 ---
 
 ## The debrief
@@ -101,6 +103,38 @@ These are the load-bearing part of the whole system — they're what stop a fres
 - **Embedded handoff prompt** — when a phase is a clean stopping point, write next session's kickoff prompt directly into PLAN. Highest-fidelity cold start there is.
 
 AGENTS.md tells the agent to respect all of these.
+
+---
+
+## Why this is also the cheap way to work
+
+Everything above was designed for *cold-start survival*, but the same moves are
+what keep an agent's token cost down — context size is the bill, and this kit is
+a discipline for keeping context small. Worth naming so a fresh agent doesn't
+"helpfully" undo it:
+
+- **Progressive disclosure is a cost control, not just tidiness.** The read
+  order (AGENTS → PLAN status → skim NOTES → JOURNAL *only if needed* →
+  `reference/` *targeted*) exists so the agent pulls in only what the task needs.
+  Distilling `reference/` instead of dumping raw specs, and keeping AGENTS short,
+  are the same lever: fewer always-read tokens on every single message.
+- **Targeted edits only** is the headline token-saver — rewriting a whole file
+  to change three lines re-emits the whole file. (Already a hard rule above;
+  this is *why* it's hard.)
+- **The markers earn their cost twice.** `(locked)`, dead-ends, and
+  "intentional, not a bug" stop the agent from re-exploring settled ground —
+  which is both a correctness win and the broad-scanning cost the markers exist
+  to prevent.
+
+The one habit the kit was missing, worth adding to the loop:
+
+- **`/clear` between unrelated tasks.** A session sends its *full* conversation
+  with every request; leaving one open all day means a one-line question still
+  re-bills the whole history (at the cached rate, but re-billed). When you switch
+  to unrelated work, `/clear` and re-orient from the files — which is exactly the
+  cold start this kit is built to make cheap and reliable. That's the payoff of
+  writing state into the files instead of the chat: clearing costs you nothing,
+  because the context lives on disk, not in the conversation.
 
 ---
 
