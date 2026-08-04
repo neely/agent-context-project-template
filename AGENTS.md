@@ -57,6 +57,25 @@ This project's entire credibility rests on this. It is not a style preference.
 README.md is for humans arriving cold — not part of your read path, but keep
 it in sync (see below).
 
+## First-run setup (delete this section once completed)
+The presence of this section IS the signal that commit style hasn't been
+chosen yet for this repo — that's how a future session knows whether to run
+this step. Do it before making any commits.
+
+Ask the user (one question, two choices):
+- **A — Frequent small commits.** Commit each meaningful change as its own
+  commit, as it happens. Simple, real-time visibility into progress as work
+  happens.
+- **B — Batched atomic commits.** Group logically-related file changes (a
+  code change + the doc update explaining it) into a single commit. Cleaner
+  history, cleaner reverts — one commit reads as one coherent decision —
+  but requires holding related edits together before committing rather than
+  committing each as it's finished.
+
+Once answered: update the "Commit to main, plainly" line under **How to
+work** below to state the chosen style explicitly, then delete this entire
+"First-run setup" section — both edits in the same commit.
+
 ## How to work
 - **Targeted edits only.** Never rewrite a whole file to change a few lines.
   Edit the precise lines.
