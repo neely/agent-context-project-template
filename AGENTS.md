@@ -8,19 +8,21 @@
 
 ## The prime directive: never assume, always check
 This project's entire credibility rests on this. It is not a style preference.
-- **Every result-fact — a [measurement, identifier, count, set membership, or
-  derived value] — comes from a FILE on disk or a SCRIPT that reads a file
-  (whether that file is committed to the repo or a pinned local artifact —
-  see Reproducibility below). Never from memory or recollection.** "I think
-  this [entity] belongs to [category]" is forbidden; emit the value from a
-  lookup and read it back.
-- If a fact isn't in a file you can read, either REQUEST the file or WRITE a
-  script/query to produce it. Do not fill the gap from training knowledge.
+It applies to every project, data-driven or not.
+- **Every fact you state — about code, config, state, or (in data projects) a
+  measurement, identifier, count, set membership, or derived value — comes
+  from a FILE on disk or a COMMAND/SCRIPT that reads one. Never from memory or
+  recollection.** "I think this function does X" or "I think this entity
+  belongs to that category" is forbidden; read the file, run the check, and
+  emit what you actually saw.
+- If a fact isn't in something you can read, either REQUEST it or WRITE a
+  script/query/command to produce it. Do not fill the gap from training
+  knowledge.
 - **For any EXTERNAL or citation claim** (a paper's figures, a DOI, a current
-  name in a controlled vocabulary, an API's behavior, a tool's limit): surface
-  it for verification — quote exactly what the source currently asserts and flag
-  it for check. Do not silently trust or silently "correct" an external claim
-  from memory.
+  name in a controlled vocabulary, an API's behavior, a library version, a
+  tool's limit): surface it for verification — quote exactly what the source
+  currently asserts and flag it for check. Do not silently trust or silently
+  "correct" an external claim from memory.
 
 ## Reproducibility is locked (data-driven projects; skip if not applicable)
 - **External data dependencies are pinned to a specific snapshot or version.**
@@ -58,11 +60,11 @@ README.md is for humans arriving cold — not part of your read path, but keep
 it in sync (see below).
 
 ## First-run setup (delete this section once completed)
-The presence of this section IS the signal that commit style hasn't been
-chosen yet for this repo — that's how a future session knows whether to run
-this step. Do it before making any commits.
+The presence of this section IS the signal that first-run setup hasn't been
+done for this repo — that's how a future session knows whether to run this
+step. Do it before making any commits. Ask both questions below in one turn.
 
-Ask the user (one question, two choices):
+**Q1 — Commit style** (two choices):
 - **A — Frequent small commits.** Commit each meaningful change as its own
   commit, as it happens. Simple, real-time visibility into progress as work
   happens.
@@ -72,9 +74,20 @@ Ask the user (one question, two choices):
   but requires holding related edits together before committing rather than
   committing each as it's finished.
 
-Once answered: update the "Commit to main, plainly" line under **How to
-work** below to state the chosen style explicitly, then delete this entire
-"First-run setup" section — both edits in the same commit.
+**Q2 — Is this a data-driven project?** Does it derive facts, measurements,
+identifiers, counts, or figures from files/scripts — such that reproducibility
+pinning and derived-set tripwires apply? (Yes/No.)
+
+Once answered:
+1. Update the "Commit to main, plainly" line under **How to work** below to
+   state the chosen commit style explicitly.
+2. If Q2 was **No**, delete the two sections tagged
+   "(data-driven projects; skip if not applicable)" — "Reproducibility is
+   locked" and "Tripwire every derived set" — in full. If **Yes**, leave them
+   and drop the "; skip if not applicable" caveat from both headings.
+3. Delete this entire "First-run setup" section.
+
+Make all edits in the same commit.
 
 ## How to work
 - **Targeted edits only.** Never rewrite a whole file to change a few lines.
