@@ -62,7 +62,7 @@ it in sync (see below).
 ## First-run setup (delete this section once completed)
 The presence of this section IS the signal that first-run setup hasn't been
 done for this repo — that's how a future session knows whether to run this
-step. Do it before making any commits. Ask both questions below in one turn.
+step. Do it before making any commits. Ask all three questions below in one turn.
 
 **Q1 — Commit style** (two choices):
 - **A — Frequent small commits.** Commit each meaningful change as its own
@@ -78,14 +78,18 @@ step. Do it before making any commits. Ask both questions below in one turn.
 identifiers, counts, or figures from files/scripts — such that reproducibility
 pinning and derived-set tripwires apply? (Yes/No.)
 
+**Q3 — Purpose and non-goals.** What is this project for, in one concrete
+sentence? Anything it deliberately won't do?
+
 Once answered:
 1. Update the "Commit to main, plainly" line under **How to work** below to
    state the chosen commit style explicitly.
-2. If Q2 was **No**, delete the two sections tagged
+2. Fill in PLAN.md's Purpose and Non-goals lines from the Q3 answer.
+3. If Q2 was **No**, delete the two sections tagged
    "(data-driven projects; skip if not applicable)" — "Reproducibility is
    locked" and "Tripwire every derived set" — in full. If **Yes**, leave them
    and drop the "; skip if not applicable" caveat from both headings.
-3. Delete this entire "First-run setup" section.
+4. Delete this entire "First-run setup" section.
 
 Make all edits in the same commit.
 

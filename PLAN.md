@@ -2,6 +2,9 @@
 
 Live at **<url>** · Repo: **<repo>**
 
+**Purpose:** <one sentence — what this project is for, in concrete terms>
+**Non-goals:** <optional — what it deliberately won't do>
+
 ---
 
 ## Status
