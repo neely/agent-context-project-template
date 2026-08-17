@@ -1,7 +1,7 @@
 # <Project> — Notes & knowledge base
 
-Topical, not chronological. This is what you don't want to re-explain or
-re-derive. Timeless reference + the reasoning behind decisions.
+Topical, not chronological. Resolved only — no open items; those stay in
+PLAN.md. Timeless reference + the reasoning behind decisions.
 
 ---
 

@@ -13,13 +13,15 @@ Live at **<url>** · Repo: **<repo>**
 
 ## Conventions
 - Keep README.md in sync with what's actually live.
-- Add decisions to NOTES.md when made; mark settled ones `(locked)`.
-- Check off phases below as completed.
+- Move settled decisions to NOTES.md; mark them `(locked)`. Open questions
+  stay here, not in NOTES.
+- Check off phases below as completed. Don't delete finished items.
 
 ---
 
 ## ✓ Phase 1 — <name>
-- <what got done> — <why, in a clause> so a fresh agent knows not to undo it
+- <what got done>. Non-obvious rationale goes in NOTES.md — link it, don't
+  repeat it here.
 - ...
 
 ## Phase 2 — <name>  ← ACTIVE
