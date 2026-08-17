@@ -94,6 +94,7 @@ Make all edits in the same commit.
   Edit the precise lines.
 - **Commit to main, plainly.** Standard commit messages, straight to main.
   No branches, no squashing, no commit-message prefixes. Commit as you go.
+- **Commit messages: ASD-STE100.** Simplified technical English.
 - **Respect the markers.** Do not reopen anything tagged `(locked)` or
   "don't relitigate" unless explicitly told to. Do not "fix" anything tagged
   "intentional, not a bug." Do not re-explore anything recorded as a dead-end.
