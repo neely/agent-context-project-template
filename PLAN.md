@@ -16,13 +16,13 @@ Live at **<url>** · Repo: **<repo>**
 - Move settled decisions to NOTES.md; mark them `(locked)`. Open questions
   stay here, not in NOTES.
 - Check off phases below as completed. Don't delete finished items.
+- When a phase finishes: move non-obvious rationale to NOTES first, then
+  collapse the phase to one line under Completed.
 
 ---
 
-## ✓ Phase 1 — <name>
-- <what got done>. Non-obvious rationale goes in NOTES.md — link it, don't
-  repeat it here.
-- ...
+## ✓ Completed
+- Phase 1 — <name>: <one-clause outcome>.
 
 ## Phase 2 — <name>  ← ACTIVE
 - [x] <done item>
