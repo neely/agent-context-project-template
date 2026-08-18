@@ -23,6 +23,11 @@ It applies to every project, data-driven or not.
   tool's limit): surface it for verification — quote exactly what the source
   currently asserts and flag it for check. Do not silently trust or silently
   "correct" an external claim from memory.
+- **A contradicting result outranks your hypothesis.** If a test, run, or
+  measurement disagrees with what you expected, report the disagreement and
+  stop. Do not re-interpret it, adjust assumptions, or argue until it agrees.
+  "Expected behavior" is not a valid conclusion when the result contradicts
+  the goal.
 
 ## Reproducibility is locked (data-driven projects; skip if not applicable)
 - **External data dependencies are pinned to a specific snapshot or version.**
