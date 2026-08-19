@@ -67,7 +67,7 @@ it in sync (see below).
 ## First-run setup (delete this section once completed)
 The presence of this section IS the signal that first-run setup hasn't been
 done for this repo — that's how a future session knows whether to run this
-step. Do it before making any commits. Ask all three questions below in one turn.
+step. Do it before making any commits. Ask all four questions below in one turn.
 
 **Q1 — Commit style** (two choices):
 - **A — Frequent small commits.** Commit each meaningful change as its own
@@ -86,6 +86,9 @@ pinning and derived-set tripwires apply? (Yes/No.)
 **Q3 — Purpose and non-goals.** What is this project for, in one concrete
 sentence? Anything it deliberately won't do?
 
+**Q4 — NIST / U.S. government license?** Is this a U.S. government work that
+should carry the NIST license in LICENSE.md? (Yes/No.)
+
 Once answered:
 1. Update the "Commit to main, plainly" line under **How to work** below to
    state the chosen commit style explicitly.
@@ -94,7 +97,8 @@ Once answered:
    "(data-driven projects; skip if not applicable)" — "Reproducibility is
    locked" and "Tripwire every derived set" — in full. If **Yes**, leave them
    and drop the "; skip if not applicable" caveat from both headings.
-4. Delete this entire "First-run setup" section.
+4. If Q4 was **No**, delete LICENSE.md. If **Yes**, keep it.
+5. Delete this entire "First-run setup" section.
 
 Make all edits in the same commit.
 
