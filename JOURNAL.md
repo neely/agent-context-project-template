@@ -1,7 +1,10 @@
 # <Project> — Journal
 
-Append-only. Newest entry on top. Never edit past entries — this is history,
-not current state. One entry per session: the shutdown debrief.
+Newest entry on top. Entries are never edited — this is history, not current
+state. One entry per session: the shutdown debrief.
+
+Keep the 5 most recent entries here. Move older entries, unchanged, to
+journal/YYYY-MM.md (the month they were written, newest first).
 
 ---
 
