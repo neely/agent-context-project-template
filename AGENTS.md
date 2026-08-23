@@ -1,3 +1,5 @@
+<!-- agent-context-kit v4 - 2026-08-23 - github.com/neely/agent-context-project-template -->
+
 # Agent Protocol
 
 ## Authority (read if present)
@@ -51,13 +53,17 @@ It applies to every project, data-driven or not.
 - When an aggregation looks surprising, INSPECT THE RAW PRE-AGGREGATION
   DISTRIBUTION before trusting it.
 - Project-specific tripwires (expected counts, known splits, sanity bounds) are
-  defined in NOTES.md.
+  defined under **Established** in FINDINGS.md.
 
 ## Files (read in this order on a cold start)
 1. This file — how to behave.
 2. PLAN.md — status block (top) + active phase.
-3. NOTES.md — why things are built the way they are; skim for relevance.
-4. JOURNAL.md — recent debriefs, only if you need the backstory.
+3. FINDINGS.md — what this project has concluded. **Established** holds
+   discovered truths (tripwires, limitations, dead-ends, reference).
+   **Decisions** holds choices and why. Skim for relevance.
+4. JOURNAL.md — the 5 most recent debriefs, only if you need the backstory.
+   journal/ holds older entries by month. Do not read it unless you are
+   looking for something specific.
 5. reference/ — vendored external material (docs, specs, ported source).
    Consult targeted, only when the task needs it — do not read it wholesale.
 
@@ -67,7 +73,7 @@ it in sync (see below).
 ## First-run setup (delete this section once completed)
 The presence of this section IS the signal that first-run setup hasn't been
 done for this repo — that's how a future session knows whether to run this
-step. Do it before making any commits. Ask all four questions below in one turn.
+step. Do it before making any commits. Ask all five questions below in one turn.
 
 **Q1 — Commit style** (two choices):
 - **A — Frequent small commits.** Commit each meaningful change as its own
@@ -89,6 +95,11 @@ sentence? Anything it deliberately won't do?
 **Q4 — NIST / U.S. government license?** Is this a U.S. government work that
 should carry the NIST license in LICENSE.md? (Yes/No.)
 
+**Q5 — Journal location.** Can you write issues to a GitHub remote for this
+repo? If yes, each debrief is filed as an issue labeled `journal`, titled with
+the date, and closed on creation. If no, debriefs go to JOURNAL.md. (Default:
+JOURNAL.md — it needs no network and stays in the cold-start read path.)
+
 Once answered:
 1. Update the "Commit to main, plainly" line under **How to work** below to
    state the chosen commit style explicitly.
@@ -98,7 +109,11 @@ Once answered:
    locked" and "Tripwire every derived set" — in full. If **Yes**, leave them
    and drop the "; skip if not applicable" caveat from both headings.
 4. If Q4 was **No**, delete LICENSE.md. If **Yes**, keep it.
-5. Delete this entire "First-run setup" section.
+5. If Q5 was issues, delete JOURNAL.md and say so in the Files section above.
+   If JOURNAL.md, leave it.
+6. Move _delete-after-setup/README.stub.md to README.md, replacing the kit's
+   own README. Then delete the _delete-after-setup/ folder in full.
+7. Delete this entire "First-run setup" section.
 
 Make all edits in the same commit.
 
@@ -109,7 +124,7 @@ Make all edits in the same commit.
   No branches, no squashing, no commit-message prefixes. Commit as you go.
 - **Write in ASD-STE100.** Simplified technical English — short sentences,
   one idea each. Applies to commit messages and everything you write in
-  PLAN, NOTES, and JOURNAL.
+  PLAN, FINDINGS, and JOURNAL.
 - **Respect the markers.** Do not reopen anything tagged `(locked)` or
   "don't relitigate" unless explicitly told to. Do not "fix" anything tagged
   "intentional, not a bug." Do not re-explore anything recorded as a dead-end.
@@ -118,7 +133,7 @@ Make all edits in the same commit.
 
 ## Start of session
 Read the files above. Before writing any code, sanity-check that PLAN's status
-block, its checkboxes, and NOTES agree with each other and with the actual repo
+block, its checkboxes, and FINDINGS agree with each other and with the actual repo
 — flag anything stale or contradictory. (This catches a botched shutdown from
 last session for free.) Then state the next step to confirm you're oriented.
 
@@ -127,9 +142,13 @@ Do these in order, and reply with each step and its result so nothing is
 silently skipped — a prose "done!" hides gaps; an itemized report surfaces them.
 1. Update the status block in PLAN.md (current state + next action).
 2. Tick finished PLAN checkboxes (say "none" if nothing changed).
-3. Add new decisions / dead-ends to NOTES.md (with the right markers).
+3. Update FINDINGS.md. New choices go under **Decisions** with the rejected
+   alternative. New discovered truths and dead-ends go under **Established**.
+   Use the right markers. Both sections are edited in place: if a result
+   contradicted an entry, correct that entry. Do not append a correction.
 4. Update README if anything it describes changed (say "no change" if not).
-5. Run the debrief and append it to the TOP of JOURNAL.md.
+5. Run the debrief and append it to the TOP of JOURNAL.md. If that makes
+   more than 5 entries, move the oldest to journal/YYYY-MM.md unchanged.
 6. Commit AND push. Report the commit hash and confirm the remote accepted the
    push — these are two separate operations and "committed" is not "pushed."
 
