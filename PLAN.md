@@ -16,10 +16,10 @@ Live at **<url>** · Repo: **<repo>**
 
 ## Conventions
 - Keep README.md in sync with what's actually live.
-- Move settled decisions to NOTES.md; mark them `(locked)`. Open questions
-  stay here, not in NOTES.
+- Move settled decisions to FINDINGS.md; mark them `(locked)`. Open questions
+  stay here, not in FINDINGS.
 - Check off phases below as completed. Don't delete finished items.
-- When a phase finishes: move non-obvious rationale to NOTES first, then
+- When a phase finishes: move non-obvious rationale to FINDINGS first, then
   collapse the phase to one line under Completed.
 
 ---
@@ -42,6 +42,6 @@ Live at **<url>** · Repo: **<repo>**
 
 ## Handoff → next session
 Start prompt:
-> Read AGENTS.md, PLAN.md status block, and NOTES.md "<section>", then
+> Read AGENTS.md, PLAN.md status block, and FINDINGS.md "<section>", then
 > implement Phase 3: <name>. Key files: <...>. Watch out for <...>.
 -->
