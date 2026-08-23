@@ -149,6 +149,7 @@ silently skipped — a prose "done!" hides gaps; an itemized report surfaces the
 4. Update README if anything it describes changed (say "no change" if not).
 5. Run the debrief and append it to the TOP of JOURNAL.md. If that makes
    more than 5 entries, move the oldest to journal/YYYY-MM.md unchanged.
+   YYYY-MM is the month that entry was written, not the current month.
 6. Commit AND push. Report the commit hash and confirm the remote accepted the
    push — these are two separate operations and "committed" is not "pushed."
 
