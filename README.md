@@ -4,7 +4,7 @@ A repo-level context system for solo development on `main`, built to survive a
 cold start — a fresh chat with zero memory should be able to read these files
 and pick up exactly where you left off.
 
-Five living files plus git. No branches, no pointer files, no extra ceremony —
+Six living files plus git. No branches, no pointer files, no extra ceremony —
 everything here is stripped to what actually earns its place.
 
 **Current version: v4** (2026-08-23). Changelog at the bottom.
@@ -34,6 +34,7 @@ that was intentional.
 | `PLAN.md` | Agent + mid-build you | What's done, what's active, what's next | Medium |
 | `FINDINGS.md` | Agent + mid-build you | What we've established, and what we decided | Medium |
 | `JOURNAL.md` | Future you | How did we get here, what was I unsure about | None — entries never edited |
+| `CLAUDE.md` | Claude Code | Ensures AGENTS.md is read on cold start | Low — just a reference |
 
 **Boundaries, so files don't overlap:**
 - README = the project *as it exists now*, for a newcomer.
@@ -129,7 +130,7 @@ newest debrief on top.)
 
 ## Changelog
 
-**v4 — 2026-08-23**
+**v4 — 2026-08-28**
 - NOTES.md becomes FINDINGS.md, split into **Established** (discovered truths)
   and **Decisions** (choices, and why). Both edited in place.
 - Tripwires get an explicit heading. AGENTS.md pointed at a section of NOTES
@@ -141,6 +142,9 @@ newest debrief on top.)
 - AGENTS.md carries a version stamp, so any project shows which generation of
   the kit it was born from.
 - First-run adds a fifth question: where the journal lives.
+- Added CLAUDE.md in the repository root that points to AGENTS.md (`@AGENTS.md`)
+  to ensure Claude Code reads AGENTS.md on cold start even if it does not
+  automatically pick up AGENTS.md.
 
 **v3 — 2026-08-17 / 08-19**
 - Commit messages, and everything the agent writes in PLAN, NOTES, and
