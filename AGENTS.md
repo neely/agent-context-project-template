@@ -1,4 +1,4 @@
-<!-- agent-context-kit v4 - 2026-08-23 - github.com/neely/agent-context-project-template -->
+<!-- agent-context-kit v4 - 2026-08-29 - github.com/neely/agent-context-project-template -->
 
 # Agent Protocol
 
@@ -106,11 +106,13 @@ Once answered:
 2. Fill in PLAN.md's Purpose and Non-goals lines from the Q3 answer.
 3. If Q2 was **No**, delete the two sections tagged
    "(data-driven projects; skip if not applicable)" — "Reproducibility is
-   locked" and "Tripwire every derived set" — in full. If **Yes**, leave them
-   and drop the "; skip if not applicable" caveat from both headings.
+   locked" and "Tripwire every derived set" — in full. Also delete the
+   "### Tripwires" block from FINDINGS.md. If **Yes**, leave them and drop
+   the "; skip if not applicable" caveat from both headings.
 4. If Q4 was **No**, delete LICENSE.md. If **Yes**, keep it.
-5. If Q5 was issues, delete JOURNAL.md and say so in the Files section above.
-   If JOURNAL.md, leave it.
+5. If Q5 was issues, delete JOURNAL.md. Then change item 4 in the Files
+   section above to point at the issues. Give the command that lists them:
+   `gh issue list --label journal --state all`. If JOURNAL.md, leave it.
 6. Move _delete-after-setup/README.stub.md to README.md, replacing the kit's
    own README. Then delete the _delete-after-setup/ folder in full.
 7. Delete this entire "First-run setup" section.

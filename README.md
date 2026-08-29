@@ -7,7 +7,7 @@ and pick up exactly where you left off.
 Six living files plus git. No branches, no pointer files, no extra ceremony —
 everything here is stripped to what actually earns its place.
 
-**Current version: v4** (2026-08-23). Changelog at the bottom.
+**Current version: v4** (2026-08-29). Changelog at the bottom.
 
 ---
 
@@ -25,7 +25,7 @@ that was intentional.
 
 ---
 
-## The five files
+## The six files
 
 | File | Reader | Answers | Sync risk |
 |------|--------|---------|-----------|
@@ -130,7 +130,14 @@ newest debrief on top.)
 
 ## Changelog
 
-**v4 — 2026-08-28**
+**v4 — 2026-08-23 / 08-29**
+- Fixed four drift items. README said five files in the heading and six in
+  the text; it is six, with CLAUDE.md. The v4 date did not agree across the
+  AGENTS.md stamp, the README, and the changelog.
+- First-run step 3 now also removes the Tripwires block from FINDINGS.md when
+  the project is not data-driven. The block had no rule left to serve.
+- First-run step 5 now records how to find the journal issues when the journal
+  moves to GitHub. Before, the journal left the read path with no pointer.
 - NOTES.md becomes FINDINGS.md, split into **Established** (discovered truths)
   and **Decisions** (choices, and why). Both edited in place.
 - Tripwires get an explicit heading. AGENTS.md pointed at a section of NOTES
