@@ -131,6 +131,11 @@ newest debrief on top.)
 ## Changelog
 
 **v4 — 2026-08-23 / 08-29**
+- The prime directive now says which files count. "A file on disk" let an
+  agent-private memory store through, because such a store is a file on disk.
+  A store an agent wrote for itself is not a source of fact.
+- A ticked PLAN checkbox now carries an evidence standard. Tests that pass are
+  not proof on their own.
 - Fixed four drift items. README said five files in the heading and six in
   the text; it is six, with CLAUDE.md. The v4 date did not agree across the
   AGENTS.md stamp, the README, and the changelog.

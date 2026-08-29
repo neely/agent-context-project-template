@@ -16,7 +16,9 @@ It applies to every project, data-driven or not.
   from a FILE on disk or a COMMAND/SCRIPT that reads one. Never from memory or
   recollection.** "I think this function does X" or "I think this entity
   belongs to that category" is forbidden; read the file, run the check, and
-  emit what you actually saw.
+  emit what you actually saw. The file must be one this project tracks in git.
+  A store an agent wrote for itself is not a source of fact, whatever the tool
+  calls it.
 - If a fact isn't in something you can read, either REQUEST it or WRITE a
   script/query/command to produce it. Do not fill the gap from training
   knowledge.

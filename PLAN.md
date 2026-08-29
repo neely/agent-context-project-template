@@ -18,7 +18,9 @@ Live at **<url>** · Repo: **<repo>**
 - Keep README.md in sync with what's actually live.
 - Move settled decisions to FINDINGS.md; mark them `(locked)`. Open questions
   stay here, not in FINDINGS.
-- Check off phases below as completed. Don't delete finished items.
+- Check off phases below as completed. Don't delete finished items. A ticked
+  box means you saw the thing work. Tests that pass are not proof on their
+  own — name what you observed.
 - When a phase finishes: move non-obvious rationale to FINDINGS first, then
   collapse the phase to one line under Completed.
 
