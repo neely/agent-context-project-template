@@ -144,7 +144,9 @@ newest debrief on top.)
 - First-run step 5 now records how to find the journal issues when the journal
   moves to GitHub. Before, the journal left the read path with no pointer.
 - NOTES.md becomes FINDINGS.md, split into **Established** (discovered truths)
-  and **Decisions** (choices, and why). Both edited in place.
+  and **Decisions** (choices, and why). Both edited in place. The rename is the
+  point, not the split. Agents read "notes" literally and put anything in it.
+  The file was never for notes. It holds what the project has concluded.
 - Tripwires get an explicit heading. AGENTS.md pointed at a section of NOTES
   that did not exist.
 - JOURNAL.md keeps the 5 most recent entries. Older entries move unchanged to
