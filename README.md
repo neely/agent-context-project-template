@@ -1,11 +1,20 @@
-# Solo Agent Context Kit — project template
+# Solo Agent Context Kit: a project operating system for LLM-based development
 
 A repo-level context system for solo development on `main`, built to survive a
-cold start — a fresh chat with zero memory should be able to read these files
-and pick up exactly where you left off.
+cold start: a fresh chat with zero memory should be able to read AGENTS.md
+and pick up exactly where you left off, made possible by a thorough shutdown protocol.
 
-Six living files plus git. No branches, no pointer files, no extra ceremony —
-everything here is stripped to what actually earns its place.
+This template is a project operating system for an LLM comprised of six living
+files plus git. Answer some starter questions and then you are ready to roll with
+"Read AGENTS.md and let's GO!!!" or "Shutdown" commands.
+
+This system is focused on reproducibility, testing, targeted edits, and using either
+frequent small commits or batched atomic commits, along with a quasi Architecture Decision
+Record (ADR) system, and shutdown protocol that includes a debrief (to catch mistakes
+and spot future opportunities), which taken together means this attempts to keep the LLM honest,
+documented, and the use of commits/pushes along with a journal means the history
+is easy to understand and revert to, lowering the cost of giving more leeway to the
+LLM during development.
 
 **Current version: v4** (2026-08-29). Changelog at the bottom.
 
@@ -29,36 +38,39 @@ that was intentional.
 
 | File | Reader | Answers | Sync risk |
 |------|--------|---------|-----------|
-| `README.md` | A human arriving cold | What is this, where's it live, how do I run it | High — rots silently |
-| `AGENTS.md` | The agent | How should I behave, what's off-limits | Low — rules change rarely |
+| `README.md` | A human arriving cold | What is this, where's it live, how do I run it | High (rots silently) |
+| `AGENTS.md` | The agent | How should I behave, what's off-limits | Low (rules change rarely) |
 | `PLAN.md` | Agent + mid-build you | What's done, what's active, what's next | Medium |
 | `FINDINGS.md` | Agent + mid-build you | What we've established, and what we decided | Medium |
-| `JOURNAL.md` | Future you | How did we get here, what was I unsure about | None — entries never edited |
-| `CLAUDE.md` | Claude Code | Ensures AGENTS.md is read on cold start | Low — just a reference |
+| `JOURNAL.md` | Future you | How did we get here, what was I unsure about | None (entries never edited) |
+| `CLAUDE.md` | Claude Code | Ensures AGENTS.md is read on cold start, now [deprecated](https://github.com/anthropics/claude-code/tree/main/mods/agents-md) | Low — just a reference |
 
 **Boundaries, so files don't overlap:**
 - README = the project *as it exists now*, for a newcomer.
 - PLAN = *where it's going* (plus the status block: where it is right now).
-- FINDINGS = *what's settled* — discovered truths under **Established**,
-  choices under **Decisions**.
+- FINDINGS = *what's settled* (discovered truths under **Established**,
+  choices under **Decisions**). = quasi Architecture Decision Record (ADR) system
 - JOURNAL = *how we got here* (temporal, reflective).
 
-If you feel yourself writing roadmap into the README or marketing copy into
-PLAN, a boundary slipped.
+If you feel yourself or your LLM writing a roadmap into the README or marketing copy into
+PLAN, a boundary slipped. Note: sometimes running a drift correction or "check my hygiene
+between context docs" can be useful.
 
 **Where the status block lives:** on PLAN, right at the top. It's the mutable
-"you are here" snapshot. Pick one home and never duplicate it — a duplicated
+"you are here" snapshot. Pick one home and never duplicate it. A duplicated
 current-state field is exactly the thing that drifts.
 
 ### Two optional additions
 
-**`reference/` — vendored knowledge.** The five files are for what *you*
-author. External material — API docs, a scraped spec, source you're porting
-from — goes in a `reference/` folder instead. The distinction: **FINDINGS is
+**`reference/` - vendored knowledge.** The six files are for what *you*
+author. External material like API docs, a scraped spec, source you're porting
+from goes in a `reference/` folder instead. The distinction: **FINDINGS is
 what you concluded; `reference/` is what you brought in.** It must hold
-*distilled* material, not raw dumps.
+*distilled* material, not raw dumps. This knowledgebase has an opportunity to become
+more formal and searchable without killing context size, but this is beyond this
+simple template (in the current version at least).
 
-**Grounding — the rung above AGENTS.** For some work, especially scientific
+**Grounding - the rung above AGENTS.** For some work, especially scientific
 software, there's a layer of authority higher than any single project's rules:
 field-level invariants that come from community consensus, not from you. When
 such a spec applies, it *outranks* AGENTS, because validity beats individual
@@ -89,29 +101,29 @@ project: the README stub, the kickoff prompt, and this changelog's source.
 
 ## The session loop
 
-**Init** — read `AGENTS.md`, then PLAN's status block and active phase. Skim
+**Init** - read `AGENTS.md`, then PLAN's status block and active phase. Skim
 FINDINGS. State the next step before writing code.
 
-**During** — work normally. Commit as you go, plain messages, straight to
+**During** - work normally. Commit as you go, plain messages, straight to
 `main`. Targeted edits only: never rewrite a whole file to change a few lines.
 
-**Shutdown** — run the routine in AGENTS.md and have the agent report each
+**Shutdown** - run the routine in AGENTS.md and have the agent report each
 step and its result. A prose "done!" hides gaps; an itemized report surfaces
-them. Push is the one that bites most often.
+them.
 
 ---
 
 ## The marker conventions
 
-These are the load-bearing part of the whole system — they're what stop a
+This is the crux of the project operating system: they're what stop a
 fresh agent from undoing your work.
 
-- **`(locked)`** — a settled decision. Do not reopen without being told to.
-- **"intentional, not a bug"** — negative-space documentation. Tells the agent
+- **`(locked)`** - a settled decision. Do not reopen without being told to.
+- **"intentional, not a bug"** - negative-space documentation. Tells the agent
   what *not* to fix.
-- **Dead-ends recorded as dead-ends** — stops re-exploration of a path you
+- **Dead-ends recorded as dead-ends** - stops re-exploration of a path you
   already ruled out.
-- **Embedded handoff prompt** — when a phase is a clean stopping point, write
+- **Embedded handoff prompt** - when a phase is a clean stopping point, write
   next session's kickoff prompt directly into PLAN. Highest-fidelity cold
   start there is.
 
@@ -121,10 +133,8 @@ fresh agent from undoing your work.
 
 Branch-per-phase, squash merges, semantic commit prefixes, multi-agent
 issue/PR choreography, and a separate `pointer.md`. For solo-on-`main` every
-one is friction without payoff.
-
-(The one place reverse-chron *does* earn its keep is JOURNAL — you want the
-newest debrief on top.)
+branch is friction without payoff. Still, using in small groups adopting a git-flow
+organization or similar would be smart.
 
 ---
 
@@ -146,7 +156,9 @@ newest debrief on top.)
 - NOTES.md becomes FINDINGS.md, split into **Established** (discovered truths)
   and **Decisions** (choices, and why). Both edited in place. The rename is the
   point, not the split. Agents read "notes" literally and put anything in it.
-  The file was never for notes. It holds what the project has concluded.
+  The file was never for notes. It holds what the project has concluded. You can
+  think of FINDINGS.md like ADR-lite, but it was being treated more like a 
+  journal simply based on the file name.
 - Tripwires get an explicit heading. AGENTS.md pointed at a section of NOTES
   that did not exist.
 - JOURNAL.md keeps the 5 most recent entries. Older entries move unchanged to
