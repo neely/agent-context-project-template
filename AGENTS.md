@@ -1,4 +1,4 @@
-<!-- agent-context-kit v4 - 2026-08-29 - github.com/neely/agent-context-project-template -->
+<!-- agent-context-kit v5 - 2026-09-22 - github.com/neely/agent-context-project-template -->
 
 # Agent Protocol
 
@@ -22,6 +22,9 @@ It applies to every project, data-driven or not.
 - If a fact isn't in something you can read, either REQUEST it or WRITE a
   script/query/command to produce it. Do not fill the gap from training
   knowledge.
+- **External or agent-managed memory is a hint, not project authority.**
+  Verify recalled claims against tracked files, git history, or commands
+  before using them.
 - **For any EXTERNAL or citation claim** (a paper's figures, a DOI, a current
   name in a controlled vocabulary, an API's behavior, a library version, a
   tool's limit): surface it for verification — quote exactly what the source
@@ -124,6 +127,9 @@ Make all edits in the same commit.
 ## How to work
 - **Targeted edits only.** Never rewrite a whole file to change a few lines.
   Edit the precise lines.
+- **Do not widen scope silently.** Before editing, state the intended outcome
+  and the files likely to change. If the work expands beyond that, stop and
+  report why before continuing.
 - **Commit to main, plainly.** Standard commit messages, straight to main.
   No branches, no squashing, no commit-message prefixes. Commit as you go.
 - **Write in ASD-STE100.** Simplified technical English — short sentences,
@@ -154,7 +160,9 @@ silently skipped — a prose "done!" hides gaps; an itemized report surfaces the
 5. Run the debrief and append it to the TOP of JOURNAL.md. If that makes
    more than 5 entries, move the oldest to journal/YYYY-MM.md unchanged.
    YYYY-MM is the month that entry was written, not the current month.
-6. Commit AND push. Report the commit hash and confirm the remote accepted the
+6. Re-check the result from the current files and observed output. Do not
+   treat your earlier description of the work as evidence.
+7. Commit AND push. Report the commit hash and confirm the remote accepted the
    push — these are two separate operations and "committed" is not "pushed."
 
 ## Debrief

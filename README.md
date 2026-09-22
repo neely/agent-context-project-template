@@ -16,7 +16,7 @@ documented, and the use of commits/pushes along with a journal means the history
 is easy to understand and revert to, lowering the cost of giving more leeway to the
 LLM during development.
 
-**Current version: v4** (2026-08-29). Changelog at the bottom.
+**Current version: v5** (2026-09-22). Changelog at the bottom.
 
 ---
 
@@ -43,13 +43,14 @@ that was intentional.
 | `PLAN.md` | Agent + mid-build you | What's done, what's active, what's next | Medium |
 | `FINDINGS.md` | Agent + mid-build you | What we've established, and what we decided | Medium |
 | `JOURNAL.md` | Future you | How did we get here, what was I unsure about | None (entries never edited) |
-| `CLAUDE.md` | Claude Code | Ensures AGENTS.md is read on cold start, now [deprecated](https://github.com/anthropics/claude-code/tree/main/mods/agents-md) | Low — just a reference |
+| `CLAUDE.md` | Claude Code | Ensures AGENTS.md is read on cold start, now [deprecated](https://github.com/anthropics/claude-code/tree/main/mods/agents-md) | Low (just a reference) |
 
 **Boundaries, so files don't overlap:**
 - README = the project *as it exists now*, for a newcomer.
 - PLAN = *where it's going* (plus the status block: where it is right now).
 - FINDINGS = *what's settled* (discovered truths under **Established**,
-  choices under **Decisions**). = quasi Architecture Decision Record (ADR) system
+  choices under **Decisions**): a quasi Architecture Decision Record (ADR)
+  system.
 - JOURNAL = *how we got here* (temporal, reflective).
 
 If you feel yourself or your LLM writing a roadmap into the README or marketing copy into
@@ -95,7 +96,7 @@ chat tomorrow reads the same files and is instantly oriented.
    with `_delete-after-setup/`.
 
 `_delete-after-setup/` holds everything that shouldn't survive into your
-project: the README stub, the kickoff prompt, and this changelog's source.
+project: the README stub and the kickoff prompt.
 
 ---
 
@@ -140,7 +141,25 @@ organization or similar would be smart.
 
 ## Changelog
 
-**v4 — 2026-08-23 / 08-29**
+**v5 (2026-09-22)**
+- AGENTS.md now tells the agent not to widen scope silently. State the
+  intended outcome and the files likely to change before editing; stop and
+  report if the work grows past that.
+- Added a line to the prime directive: external or agent-managed memory is a
+  hint, not project authority. Verify a recalled claim against tracked files,
+  git history, or a command before using it.
+- Shutdown step 6 is new: re-check the result from current files and observed
+  output before committing. An earlier description of the work is not
+  evidence on its own.
+- The changelog version headers and one leftover table cell no longer use an
+  em-dash, to match house style.
+- Fixed the `_delete-after-setup/` line, which claimed it held a changelog
+  source file. It never did; git history shows only the README stub and the
+  kickoff prompt were ever added there.
+- Cleaned up a stray `= quasi Architecture Decision Record (ADR) system`
+  fragment on the FINDINGS boundary line into a full sentence.
+
+**v4 (2026-08-23 / 08-29)**
 - The prime directive now says which files count. "A file on disk" let an
   agent-private memory store through, because such a store is a file on disk.
   A store an agent wrote for itself is not a source of fact.
@@ -172,7 +191,7 @@ organization or similar would be smart.
   to ensure Claude Code reads AGENTS.md on cold start even if it does not
   automatically pick up AGENTS.md.
 
-**v3 — 2026-08-17 / 08-19**
+**v3 (2026-08-17 / 08-19)**
 - Commit messages, and everything the agent writes in PLAN, NOTES, and
   JOURNAL, follow ASD-STE100.
 - NOTES.md is resolved-only. Open items live in PLAN.md, never NOTES.
@@ -184,7 +203,7 @@ organization or similar would be smart.
 - LICENSE.md carries NIST terms, with a first-run question to remove it when
   it does not apply.
 
-**v2 — 2026-07-27 / 08-05**
+**v2 (2026-07-27 / 08-05)**
 - Added the prime directive, reproducibility pinning, and tripwire sections,
   straight out of what RM 8048 taught me.
 - Added the self-consuming first-run section. Asks its setup questions once,
@@ -192,7 +211,7 @@ organization or similar would be smart.
 - Generalized the prime directive to every project, not just data-heavy ones.
 - Removed the duplicate copy of the guide that had been living in the repo.
 
-**v1 — 2026-07-13**
+**v1 (2026-07-13)**
 - Original kit.
 
 ---
